@@ -1,0 +1,363 @@
+<?xml version="1.0"?>
+<robot name="my_robot">
+
+    <!-- Materials -->
+    <material name="grey">
+        <color rgba="0.7 0.7 0.7 1"/>
+    </material>
+    
+    <material name="green">
+        <color rgba="0 0.6 0 1"/>
+    </material>
+
+    <!-- Ground frame -->
+    <link name="base_footprint">
+        <inertial>
+            <mass value="0.001"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="0.0001" ixy="0.0" ixz="0.0"
+                    iyy="0.0001" iyz="0.0" izz="0.0001"/>
+        </inertial>
+    </link>
+    <!-- Base body (central chassis + four arms + backrest) -->
+    <link name="base_link">
+        <!-- Central chassis (shorter so it doesn't cover front/rear casters) -->
+        <visual>
+            <geometry>
+                <!-- Length 0.60, full width/height -->
+                <box size="0.60 0.645 0.25"/>
+            </geometry>
+            <!-- Center slightly back so front face ≈ +0.25 and rear ≈ -0.35 -->
+            <origin xyz="-0.05 0 0" rpy="0 0 0"/>
+            <material name="green"/>
+        </visual>
+
+        <!-- REAR ARMS -->
+        <visual>
+            <geometry>
+                <!-- Left rear arm -->
+                <box size="0.30 0.08 0.08"/>
+            </geometry>
+            <origin xyz="-0.3325 0.24 -0.085" rpy="0 0 0"/>
+            <material name="green"/>
+        </visual>
+
+        <visual>
+            <geometry>
+                <!-- Right rear arm -->
+                <box size="0.30 0.08 0.08"/>
+            </geometry>
+            <origin xyz="-0.3325 -0.24 -0.085" rpy="0 0 0"/>
+            <material name="green"/>
+        </visual>
+
+        <!-- FRONT ARMS (very short; mostly under the body) -->
+        <visual>
+            <geometry>
+                <!-- Left front arm: short beam that just reaches the caster mount -->
+                <box size="0.06 0.08 0.08"/>
+            </geometry>
+            <!-- Span from x≈0.25 (front face) to ≈0.31 -->
+            <origin xyz="0.28 0.24 -0.085" rpy="0 0 0"/>
+            <material name="green"/>
+        </visual>
+
+        <visual>
+            <geometry>
+                <!-- Right front arm -->
+                <box size="0.06 0.08 0.08"/>
+            </geometry>
+            <origin xyz="0.28 -0.24 -0.085" rpy="0 0 0"/>
+            <material name="green"/>
+        </visual>
+
+        <!-- BACKREST (attached to rear face of central chassis) -->
+        <visual>
+            <geometry>
+                <!-- thin slab: thickness 0.04 (x) × width 0.40 (y) × height 0.55 (z) -->
+                <box size="0.04 0.40 0.55"/>
+            </geometry>
+            <!-- Central chassis rear face is at x = -0.35; center at -0.33 makes it flush -->
+            <origin xyz="-0.33 0 0.400" rpy="0 0 0"/>
+            <material name="green"/>
+        </visual>
+    </link>
+
+    <!-- Drive Wheels -->
+    <link name="left_wheel">
+        <visual>
+            <geometry>
+                <cylinder radius="0.178" length="0.05"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="1.5708 0 0" />
+            <material name="grey" />
+        </visual>
+        <inertial>
+            <mass value="0.5"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="0.001" ixy="0.0" ixz="0.0"
+                    iyy="0.001" iyz="0.0" izz="0.001"/>
+        </inertial>
+    </link>
+
+    <link name="right_wheel">
+        <visual>
+            <geometry>
+                <cylinder radius="0.178" length="0.05"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="1.5708 0 0" />
+            <material name="grey" />
+        </visual>
+            <inertial>
+                <mass value="0.5"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <inertia ixx="0.001" ixy="0.0" ixz="0.0"
+                    iyy="0.001" iyz="0.0" izz="0.001"/>
+            </inertial>
+    </link>
+
+    <!-- Casters (spheres, 0.05 m radius) -->
+    <link name="left_front_caster">
+        <visual>
+            <geometry>
+                <sphere radius="0.05" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <material name="grey" />
+        </visual>
+    </link>
+
+    <link name="right_front_caster">
+        <visual>
+            <geometry>
+                <sphere radius="0.05" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <material name="grey" />
+        </visual>
+    </link>
+
+    <link name="left_rear_caster">
+        <visual>
+            <geometry>
+                <sphere radius="0.05" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <material name="grey" />
+        </visual>
+    </link>
+
+    <link name="right_rear_caster">
+        <visual>
+            <geometry>
+                <sphere radius="0.05" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <material name="grey" />
+        </visual>
+    </link>
+
+    <!-- Joints -->
+
+    <!-- Ground clearance handled ONLY here: 3.5" = 0.089 m -->
+    <joint name="base_joint" type="fixed">
+        <parent link="base_footprint" />
+        <child link="base_link"/>
+        <!-- base_link origin at z=0.214 m -> bottom of 0.25m chassis = 0.089 m -->
+        <origin xyz="0 0 0.214" rpy="0 0 0" />
+    </joint>
+
+    <!-- Mid-wheel drive (centered along length) -->
+    <!-- Half width 0.3225 + half wheel thickness 0.025 => |y|=0.3475 -->
+    <!-- Wheel center world z = 0.178; relative to base_link => -0.036 -->
+    <joint name="base_left_wheel_joint" type="continuous">
+        <parent link="base_link" />
+        <child link="left_wheel"/>
+        <origin xyz="0.0 0.3475 -0.036" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+    </joint>
+
+    <joint name="base_right_wheel_joint" type="continuous">
+        <parent link="base_link" />
+        <child link="right_wheel"/>
+        <origin xyz="0.0 -0.3475 -0.036" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+    </joint>
+
+    <!-- Casters: centers at world z = 0.05 so spheres just touch ground -->
+    <!-- base_link z = 0.214 => joint z = 0.05 - 0.214 = -0.164 -->
+    <!-- FRONT (moved so only the wheel protrudes past the body) -->
+    <joint name="left_front_caster_joint" type="fixed">
+        <parent link="base_link" />
+        <child link="left_front_caster" />
+        <!-- Front face = 0.25; center = 0.25 + 0.05 = 0.30 -->
+        <origin xyz="0.30 0.24 -0.164" rpy="0 0 0" />
+    </joint>
+
+    <joint name="right_front_caster_joint" type="fixed">
+        <parent link="base_link" />
+        <child link="right_front_caster" />
+        <origin xyz="0.30 -0.24 -0.164" rpy="0 0 0" />
+    </joint>
+
+    <!-- REAR (unchanged) -->
+    <joint name="left_rear_caster_joint" type="fixed">
+        <parent link="base_link" />
+        <child link="left_rear_caster" />
+        <origin xyz="-0.41 0.24 -0.164" rpy="0 0 0" />
+    </joint>
+
+    <joint name="right_rear_caster_joint" type="fixed">
+        <parent link="base_link" />
+        <child link="right_rear_caster" />
+        <origin xyz="-0.41 -0.24 -0.164" rpy="0 0 0" />
+    </joint>
+
+    <!-- Transmissions for the drive wheels -->
+    <transmission name="left_wheel_transmission">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="base_left_wheel_joint">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="left_wheel_motor">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      </actuator>
+    </transmission>
+
+    <transmission name="right_wheel_transmission">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="base_right_wheel_joint">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="right_wheel_motor">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      </actuator>
+    </transmission>
+
+
+    <!-- Lidar Sensor Link -->
+        <link name="lidar_link">
+            <visual>
+                <geometry>
+                    <cylinder radius="0.05" length="0.05"/>
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <material name="grey"/>
+            </visual>
+            <collision>
+                <geometry>
+                    <cylinder radius="0.05" length="0.05"/>
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+            </collision>
+            <inertial>
+                <mass value="0.1"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <inertia ixx="0.001" ixy="0.0" ixz="0.0"
+                        iyy="0.001" iyz="0.0" izz="0.001"/>
+            </inertial>
+        </link>
+
+        <!-- Attach lidar to base_link -->
+        <joint name="lidar_joint" type="fixed">
+            <parent link="base_link"/>
+            <child link="lidar_link"/>
+            <!-- Mount on top center of the chassis -->
+            <origin xyz="0 0 0.20" rpy="0 0 0"/>
+        </joint>
+
+        <!-- ========== GAZEBO PLUGINS ========== -->
+        
+        <!-- Lidar Sensor Plugin -->
+        <gazebo reference="lidar_link">
+            <sensor name="lidar" type="gpu_lidar">
+                <always_on>true</always_on>
+                <update_rate>10</update_rate>
+                <lidar>
+                    <scan>
+                        <horizontal>
+                            <samples>360</samples>
+                            <resolution>1.0</resolution>
+                            <min_angle>-3.14159</min_angle>
+                            <max_angle>3.14159</max_angle>
+                        </horizontal>
+                    </scan>
+                    <range>
+                        <min>0.12</min>
+                        <max>10.0</max>
+                        <resolution>0.01</resolution>
+                    </range>
+                </lidar>
+                <plugin name="scan" filename="libgazebo_ros_ray_sensor.so">
+                    <ros>
+                        <namespace></namespace>
+                        <remapping>~/out:=scan</remapping>
+                    </ros>
+                    <output_type>sensor_msgs/LaserScan</output_type>
+                    <frame_name>lidar_link</frame_name>
+                </plugin>
+            </sensor>
+        </gazebo>
+
+        <!-- Differential Drive Plugin -->
+        <gazebo>
+            <plugin name="diff_drive" filename="libgazebo_ros_diff_drive.so">
+                <update_rate>50</update_rate>
+                <left_joint>base_left_wheel_joint</left_joint>
+                <right_joint>base_right_wheel_joint</right_joint>
+                <wheel_separation>0.695</wheel_separation>
+                <wheel_diameter>0.356</wheel_diameter>
+                <max_wheel_torque>20</max_wheel_torque>
+                <command_topic>cmd_vel</command_topic>
+                <publish_odom>true</publish_odom>
+                <publish_odom_tf>true</publish_odom_tf>
+                <publish_wheel_tf>true</publish_wheel_tf>
+                <odometry_topic>odom</odometry_topic>
+                <odometry_frame>odom</odometry_frame>
+                <robot_base_frame>base_footprint</robot_base_frame>
+            </plugin>
+        </gazebo>
+
+        <!-- Add collision properties for wheels and casters -->
+        <gazebo reference="left_wheel">
+            <material>Gazebo/Grey</material>
+            <mu1>1.0</mu1>
+            <mu2>1.0</mu2>
+        </gazebo>
+        
+        <gazebo reference="right_wheel">
+            <material>Gazebo/Grey</material>
+            <mu1>1.0</mu1>
+            <mu2>1.0</mu2>
+        </gazebo>
+
+        <gazebo reference="left_front_caster">
+            <material>Gazebo/Grey</material>
+            <mu1>0.1</mu1>
+            <mu2>0.1</mu2>
+        </gazebo>
+
+        <gazebo reference="right_front_caster">
+            <material>Gazebo/Grey</material>
+            <mu1>0.1</mu1>
+            <mu2>0.1</mu2>
+        </gazebo>
+
+        <gazebo reference="left_rear_caster">
+            <material>Gazebo/Grey</material>
+            <mu1>0.1</mu1>
+            <mu2>0.1</mu2>
+        </gazebo>
+
+        <gazebo reference="right_rear_caster">
+            <material>Gazebo/Grey</material>
+            <mu1>0.1</mu1>
+            <mu2>0.1</mu2>
+        </gazebo>
+
+        <gazebo reference="base_link">
+            <material>Gazebo/Green</material>
+        </gazebo>
+
+    </robot>
+</robot>
