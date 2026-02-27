@@ -1,2 +1,0 @@
-[console_scripts]
-navigator = robot_navigation.navigator:main

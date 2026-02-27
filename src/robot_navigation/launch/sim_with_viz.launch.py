@@ -8,14 +8,17 @@ def generate_launch_description():
     pkg_share = get_package_share_directory('robot_navigation')
     urdf_file = os.path.join(pkg_share, 'urdf', 'my_robot.urdf')
     rviz_config = os.path.join(pkg_share, 'rviz', 'my_robot.rviz')
+    world_file = os.path.join(pkg_share, 'worlds', 'obstacle_course.sdf')
+
     
     with open(urdf_file, 'r') as infp:
         robot_desc = infp.read()
     
     return LaunchDescription([
         # Launch Gazebo
+        # NEW - Load obstacle course
         ExecuteProcess(
-            cmd=['gz', 'sim', '-r', 'empty.sdf'],
+            cmd=['gz', 'sim', '-r', world_file],
             output='screen'
         ),
         

@@ -1,1 +1,0 @@
-/home/david/code/WATCHER/ros2_ws/src/robot_navigation/launch/spawn_robot.launch.py

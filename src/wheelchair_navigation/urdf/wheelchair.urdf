@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot name="my_robot">
+<robot name="wheelchair">
 
     <material name="grey">
         <color rgba="0.7 0.7 0.7 1"/>
@@ -9,6 +9,7 @@
         <color rgba="0 0.6 0 1"/>
     </material>
 
+    <!-- Base footprint - reference frame on ground -->
     <link name="base_footprint">
         <inertial>
             <mass value="0.001"/>
@@ -18,6 +19,7 @@
         </inertial>
     </link>
 
+    <!-- Main chassis -->
     <link name="base_link">
         <visual>
             <geometry>
@@ -26,7 +28,20 @@
             <origin xyz="-0.05 0 0" rpy="0 0 0"/>
             <material name="green"/>
         </visual>
+        <collision>
+            <geometry>
+                <box size="0.60 0.645 0.25"/>
+            </geometry>
+            <origin xyz="-0.05 0 0" rpy="0 0 0"/>
+        </collision>
+        <inertial>
+            <mass value="10.0"/>
+            <origin xyz="-0.05 0 0" rpy="0 0 0"/>
+            <inertia ixx="0.5" ixy="0.0" ixz="0.0"
+                    iyy="0.5" iyz="0.0" izz="0.5"/>
+        </inertial>
 
+        <!-- Side rails -->
         <visual>
             <geometry>
                 <box size="0.30 0.08 0.08"/>
@@ -34,7 +49,6 @@
             <origin xyz="-0.3325 0.24 -0.085" rpy="0 0 0"/>
             <material name="green"/>
         </visual>
-
         <visual>
             <geometry>
                 <box size="0.30 0.08 0.08"/>
@@ -43,6 +57,7 @@
             <material name="green"/>
         </visual>
 
+        <!-- Front supports -->
         <visual>
             <geometry>
                 <box size="0.06 0.08 0.08"/>
@@ -50,7 +65,6 @@
             <origin xyz="0.28 0.24 -0.085" rpy="0 0 0"/>
             <material name="green"/>
         </visual>
-
         <visual>
             <geometry>
                 <box size="0.06 0.08 0.08"/>
@@ -59,6 +73,7 @@
             <material name="green"/>
         </visual>
 
+        <!-- Backrest -->
         <visual>
             <geometry>
                 <box size="0.04 0.40 0.55"/>
@@ -68,6 +83,7 @@
         </visual>
     </link>
 
+    <!-- Left drive wheel -->
     <link name="left_wheel">
         <visual>
             <geometry>
@@ -76,13 +92,21 @@
             <origin xyz="0 0 0" rpy="1.5708 0 0" />
             <material name="grey" />
         </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.178" length="0.05"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="1.5708 0 0" />
+        </collision>
         <inertial>
             <mass value="0.5"/>
             <origin xyz="0 0 0" rpy="0 0 0"/>
-            <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+            <inertia ixx="0.001" ixy="0.0" ixz="0.0" 
+                    iyy="0.001" iyz="0.0" izz="0.001"/>
         </inertial>
     </link>
 
+    <!-- Right drive wheel -->
     <link name="right_wheel">
         <visual>
             <geometry>
@@ -91,19 +115,37 @@
             <origin xyz="0 0 0" rpy="1.5708 0 0" />
             <material name="grey" />
         </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.178" length="0.05"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="1.5708 0 0" />
+        </collision>
         <inertial>
             <mass value="0.5"/>
             <origin xyz="0 0 0" rpy="0 0 0"/>
-            <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+            <inertia ixx="0.001" ixy="0.0" ixz="0.0" 
+                    iyy="0.001" iyz="0.0" izz="0.001"/>
         </inertial>
     </link>
 
+    <!-- Casters -->
     <link name="left_front_caster">
         <visual>
             <geometry><sphere radius="0.05" /></geometry>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <material name="grey" />
         </visual>
+        <collision>
+            <geometry><sphere radius="0.05" /></geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </collision>
+        <inertial>
+            <mass value="0.1"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="0.0001" ixy="0.0" ixz="0.0" 
+                    iyy="0.0001" iyz="0.0" izz="0.0001"/>
+        </inertial>
     </link>
 
     <link name="right_front_caster">
@@ -112,6 +154,16 @@
             <origin xyz="0 0 0" rpy="0 0 0" />
             <material name="grey" />
         </visual>
+        <collision>
+            <geometry><sphere radius="0.05" /></geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </collision>
+        <inertial>
+            <mass value="0.1"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="0.0001" ixy="0.0" ixz="0.0" 
+                    iyy="0.0001" iyz="0.0" izz="0.0001"/>
+        </inertial>
     </link>
 
     <link name="left_rear_caster">
@@ -120,6 +172,16 @@
             <origin xyz="0 0 0" rpy="0 0 0" />
             <material name="grey" />
         </visual>
+        <collision>
+            <geometry><sphere radius="0.05" /></geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </collision>
+        <inertial>
+            <mass value="0.1"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="0.0001" ixy="0.0" ixz="0.0" 
+                    iyy="0.0001" iyz="0.0" izz="0.0001"/>
+        </inertial>
     </link>
 
     <link name="right_rear_caster">
@@ -128,12 +190,40 @@
             <origin xyz="0 0 0" rpy="0 0 0" />
             <material name="grey" />
         </visual>
+        <collision>
+            <geometry><sphere radius="0.05" /></geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </collision>
+        <inertial>
+            <mass value="0.1"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="0.0001" ixy="0.0" ixz="0.0" 
+                    iyy="0.0001" iyz="0.0" izz="0.0001"/>
+        </inertial>
     </link>
 
+    <!-- Lidar sensor -->
+    <link name="lidar_link">
+        <visual>
+            <geometry><cylinder radius="0.05" length="0.05"/></geometry>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <material name="grey"/>
+        </visual>
+        <collision>
+            <geometry><cylinder radius="0.05" length="0.05"/></geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1"/>
+            <inertia ixx="0.001" ixy="0.0" ixz="0.0" 
+                    iyy="0.001" iyz="0.0" izz="0.001"/>
+        </inertial>
+    </link>
+
+    <!-- Joints -->
     <joint name="base_joint" type="fixed">
         <parent link="base_footprint" />
         <child link="base_link"/>
-        <origin xyz="0 0 1.35" rpy="0 0 0" />
+        <origin xyz="0 0 0.20" rpy="0 0 0" />
     </joint>
 
     <joint name="base_left_wheel_joint" type="continuous">
@@ -174,27 +264,13 @@
         <origin xyz="-0.41 -0.24 -0.164" rpy="0 0 0" />
     </joint>
 
-    <link name="lidar_link">
-        <visual>
-            <geometry><cylinder radius="0.05" length="0.05"/></geometry>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
-            <material name="grey"/>
-        </visual>
-        <collision>
-            <geometry><cylinder radius="0.05" length="0.05"/></geometry>
-        </collision>
-        <inertial>
-            <mass value="0.1"/>
-            <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
-        </inertial>
-    </link>
-
     <joint name="lidar_joint" type="fixed">
         <parent link="base_link"/>
         <child link="lidar_link"/>
         <origin xyz="0 0 0.20" rpy="0 0 0"/>
     </joint>
 
+    <!-- Gazebo plugins -->
     <gazebo reference="lidar_link">
         <sensor name="lidar" type="gpu_lidar">
             <topic>scan</topic>
@@ -239,27 +315,23 @@
     </gazebo>
 
     <gazebo>
-        <plugin filename="gz-sim-pose-publisher-system" name="gz::sim::systems::PosePublisher">
-            <publish_link_pose>true</publish_link_pose>
-            <publish_sensor_pose>true</publish_sensor_pose>
-            <update_frequency>50</update_frequency>
-        </plugin>
-    </gazebo>
-
-    <gazebo>
         <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
-            <update_rate>50</update_rate>
         </plugin>
     </gazebo>
 
+    <!-- Gazebo materials and friction -->
     <gazebo reference="left_wheel">
         <material>Gazebo/Grey</material>
-        <mu1>1.0</mu1><mu2>1.0</mu2>
+        <mu1>1.0</mu1>
+        <mu2>1.0</mu2>
     </gazebo>
+    
     <gazebo reference="right_wheel">
         <material>Gazebo/Grey</material>
-        <mu1>1.0</mu1><mu2>1.0</mu2>
+        <mu1>1.0</mu1>
+        <mu2>1.0</mu2>
     </gazebo>
+    
     <gazebo reference="base_link">
         <material>Gazebo/Green</material>
     </gazebo>

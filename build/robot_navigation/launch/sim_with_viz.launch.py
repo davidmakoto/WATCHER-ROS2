@@ -1,1 +1,0 @@
-/home/david/code/WATCHER/ros2_ws/src/robot_navigation/launch/sim_with_viz.launch.py
