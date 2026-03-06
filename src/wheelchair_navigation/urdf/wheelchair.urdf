@@ -202,19 +202,19 @@
         </inertial>
     </link>
 
-    <!-- Lidar sensor -->
-    <link name="lidar_link">
+    <!-- Depth camera sensor -->
+    <link name="camera_link">
         <visual>
-            <geometry><cylinder radius="0.05" length="0.05"/></geometry>
+            <geometry><box size="0.05 0.10 0.04"/></geometry>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <material name="grey"/>
         </visual>
         <collision>
-            <geometry><cylinder radius="0.05" length="0.05"/></geometry>
+            <geometry><box size="0.05 0.10 0.04"/></geometry>
         </collision>
         <inertial>
             <mass value="0.1"/>
-            <inertia ixx="0.001" ixy="0.0" ixz="0.0" 
+            <inertia ixx="0.001" ixy="0.0" ixz="0.0"
                     iyy="0.001" iyz="0.0" izz="0.001"/>
         </inertial>
     </link>
@@ -264,37 +264,29 @@
         <origin xyz="-0.41 -0.24 -0.164" rpy="0 0 0" />
     </joint>
 
-    <joint name="lidar_joint" type="fixed">
+    <joint name="camera_joint" type="fixed">
         <parent link="base_link"/>
-        <child link="lidar_link"/>
-        <origin xyz="0 0 0.20" rpy="0 0 0"/>
+        <child link="camera_link"/>
+        <origin xyz="0.30 0 0.20" rpy="0 0 0"/>
     </joint>
 
     <!-- Gazebo plugins -->
-    <gazebo reference="lidar_link">
-        <sensor name="lidar" type="gpu_lidar">
-            <topic>scan</topic>
-            <update_rate>10</update_rate>
-            <lidar>
-                <scan>
-                    <horizontal>
-                        <samples>360</samples>
-                        <resolution>1.0</resolution>
-                        <min_angle>-3.14159</min_angle>
-                        <max_angle>3.14159</max_angle>
-                    </horizontal>
-                </scan>
-                <range>
-                    <min>0.12</min>
-                    <max>10.0</max>
-                    <resolution>0.01</resolution>
-                </range>
-                <noise>
-                    <type>gaussian</type>
-                    <mean>0.0</mean>
-                    <stddev>0.01</stddev>
-                </noise>
-            </lidar>
+    <gazebo reference="camera_link">
+        <sensor name="depth_camera" type="depth_camera">
+            <topic>depth_camera/image</topic>
+            <camera_info_topic>depth_camera/camera_info</camera_info_topic>
+            <update_rate>15</update_rate>
+            <camera>
+                <image>
+                    <width>640</width>
+                    <height>480</height>
+                    <format>R_FLOAT32</format>
+                </image>
+                <clip>
+                    <near>0.3</near>
+                    <far>10.0</far>
+                </clip>
+            </camera>
             <always_on>1</always_on>
             <visualize>true</visualize>
         </sensor>

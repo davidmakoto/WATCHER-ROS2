@@ -1,0 +1,15 @@
+[1.229s] Invoking command in '/home/david/code/WATCHER-ROS2/build/wheelchair_navigation': PYTHONPATH=/home/david/code/WATCHER-ROS2/build/wheelchair_navigation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/david/code/WATCHER-ROS2/install/wheelchair_navigation/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/david/code/WATCHER-ROS2/build/wheelchair_navigation/build --no-deps symlink_data
+[1.597s] running develop
+[1.942s] running egg_info
+[1.964s] writing wheelchair_navigation.egg-info/PKG-INFO
+[1.964s] writing dependency_links to wheelchair_navigation.egg-info/dependency_links.txt
+[1.964s] writing requirements to wheelchair_navigation.egg-info/requires.txt
+[1.964s] writing top-level names to wheelchair_navigation.egg-info/top_level.txt
+[2.007s] reading manifest file 'wheelchair_navigation.egg-info/SOURCES.txt'
+[2.007s] writing manifest file 'wheelchair_navigation.egg-info/SOURCES.txt'
+[2.032s] running build_ext
+[2.032s] Creating /home/david/code/WATCHER-ROS2/install/wheelchair_navigation/lib/python3.12/site-packages/wheelchair-navigation.egg-link (link to .)
+[2.032s] 
+[2.032s] Installed /home/david/code/WATCHER-ROS2/build/wheelchair_navigation
+[2.032s] running symlink_data
+[2.094s] Invoked command in '/home/david/code/WATCHER-ROS2/build/wheelchair_navigation' returned '0': PYTHONPATH=/home/david/code/WATCHER-ROS2/build/wheelchair_navigation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/david/code/WATCHER-ROS2/install/wheelchair_navigation/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/david/code/WATCHER-ROS2/build/wheelchair_navigation/build --no-deps symlink_data
