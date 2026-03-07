@@ -4,7 +4,7 @@
     <material name="grey">
         <color rgba="0.7 0.7 0.7 1"/>
     </material>
-    
+
     <material name="green">
         <color rgba="0 0.6 0 1"/>
     </material>
@@ -22,16 +22,12 @@
     <!-- Main chassis -->
     <link name="base_link">
         <visual>
-            <geometry>
-                <box size="0.60 0.645 0.25"/>
-            </geometry>
+            <geometry><box size="0.60 0.645 0.25"/></geometry>
             <origin xyz="-0.05 0 0" rpy="0 0 0"/>
             <material name="green"/>
         </visual>
         <collision>
-            <geometry>
-                <box size="0.60 0.645 0.25"/>
-            </geometry>
+            <geometry><box size="0.60 0.645 0.25"/></geometry>
             <origin xyz="-0.05 0 0" rpy="0 0 0"/>
         </collision>
         <inertial>
@@ -40,258 +36,195 @@
             <inertia ixx="0.5" ixy="0.0" ixz="0.0"
                     iyy="0.5" iyz="0.0" izz="0.5"/>
         </inertial>
-
-        <!-- Side rails -->
-        <visual>
-            <geometry>
-                <box size="0.30 0.08 0.08"/>
-            </geometry>
-            <origin xyz="-0.3325 0.24 -0.085" rpy="0 0 0"/>
-            <material name="green"/>
-        </visual>
-        <visual>
-            <geometry>
-                <box size="0.30 0.08 0.08"/>
-            </geometry>
-            <origin xyz="-0.3325 -0.24 -0.085" rpy="0 0 0"/>
-            <material name="green"/>
-        </visual>
-
-        <!-- Front supports -->
-        <visual>
-            <geometry>
-                <box size="0.06 0.08 0.08"/>
-            </geometry>
-            <origin xyz="0.28 0.24 -0.085" rpy="0 0 0"/>
-            <material name="green"/>
-        </visual>
-        <visual>
-            <geometry>
-                <box size="0.06 0.08 0.08"/>
-            </geometry>
-            <origin xyz="0.28 -0.24 -0.085" rpy="0 0 0"/>
-            <material name="green"/>
-        </visual>
-
-        <!-- Backrest -->
-        <visual>
-            <geometry>
-                <box size="0.04 0.40 0.55"/>
-            </geometry>
-            <origin xyz="-0.33 0 0.400" rpy="0 0 0"/>
-            <material name="green"/>
-        </visual>
+        <visual><geometry><box size="0.30 0.08 0.08"/></geometry><origin xyz="-0.3325 0.24 -0.085" rpy="0 0 0"/><material name="green"/></visual>
+        <visual><geometry><box size="0.30 0.08 0.08"/></geometry><origin xyz="-0.3325 -0.24 -0.085" rpy="0 0 0"/><material name="green"/></visual>
+        <visual><geometry><box size="0.06 0.08 0.08"/></geometry><origin xyz="0.28 0.24 -0.085" rpy="0 0 0"/><material name="green"/></visual>
+        <visual><geometry><box size="0.06 0.08 0.08"/></geometry><origin xyz="0.28 -0.24 -0.085" rpy="0 0 0"/><material name="green"/></visual>
+        <visual><geometry><box size="0.04 0.40 0.55"/></geometry><origin xyz="-0.33 0 0.400" rpy="0 0 0"/><material name="green"/></visual>
     </link>
 
-    <!-- Left drive wheel -->
+    <!-- Drive wheels -->
     <link name="left_wheel">
-        <visual>
-            <geometry>
-                <cylinder radius="0.178" length="0.05"/>
-            </geometry>
-            <origin xyz="0 0 0" rpy="1.5708 0 0" />
-            <material name="grey" />
-        </visual>
-        <collision>
-            <geometry>
-                <cylinder radius="0.178" length="0.05"/>
-            </geometry>
-            <origin xyz="0 0 0" rpy="1.5708 0 0" />
-        </collision>
-        <inertial>
-            <mass value="0.5"/>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
-            <inertia ixx="0.001" ixy="0.0" ixz="0.0" 
-                    iyy="0.001" iyz="0.0" izz="0.001"/>
-        </inertial>
+        <visual><geometry><cylinder radius="0.178" length="0.05"/></geometry><origin xyz="0 0 0" rpy="1.5708 0 0"/><material name="grey"/></visual>
+        <collision><geometry><cylinder radius="0.178" length="0.05"/></geometry><origin xyz="0 0 0" rpy="1.5708 0 0"/></collision>
+        <inertial><mass value="0.5"/><origin xyz="0 0 0" rpy="0 0 0"/><inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/></inertial>
     </link>
 
-    <!-- Right drive wheel -->
     <link name="right_wheel">
-        <visual>
-            <geometry>
-                <cylinder radius="0.178" length="0.05"/>
-            </geometry>
-            <origin xyz="0 0 0" rpy="1.5708 0 0" />
-            <material name="grey" />
-        </visual>
-        <collision>
-            <geometry>
-                <cylinder radius="0.178" length="0.05"/>
-            </geometry>
-            <origin xyz="0 0 0" rpy="1.5708 0 0" />
-        </collision>
-        <inertial>
-            <mass value="0.5"/>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
-            <inertia ixx="0.001" ixy="0.0" ixz="0.0" 
-                    iyy="0.001" iyz="0.0" izz="0.001"/>
-        </inertial>
+        <visual><geometry><cylinder radius="0.178" length="0.05"/></geometry><origin xyz="0 0 0" rpy="1.5708 0 0"/><material name="grey"/></visual>
+        <collision><geometry><cylinder radius="0.178" length="0.05"/></geometry><origin xyz="0 0 0" rpy="1.5708 0 0"/></collision>
+        <inertial><mass value="0.5"/><origin xyz="0 0 0" rpy="0 0 0"/><inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/></inertial>
     </link>
 
     <!-- Casters -->
     <link name="left_front_caster">
-        <visual>
-            <geometry><sphere radius="0.05" /></geometry>
-            <origin xyz="0 0 0" rpy="0 0 0" />
-            <material name="grey" />
-        </visual>
-        <collision>
-            <geometry><sphere radius="0.05" /></geometry>
-            <origin xyz="0 0 0" rpy="0 0 0" />
-        </collision>
-        <inertial>
-            <mass value="0.1"/>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
-            <inertia ixx="0.0001" ixy="0.0" ixz="0.0" 
-                    iyy="0.0001" iyz="0.0" izz="0.0001"/>
-        </inertial>
+        <visual><geometry><sphere radius="0.05"/></geometry><origin xyz="0 0 0" rpy="0 0 0"/><material name="grey"/></visual>
+        <collision><geometry><sphere radius="0.05"/></geometry></collision>
+        <inertial><mass value="0.1"/><origin xyz="0 0 0" rpy="0 0 0"/><inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/></inertial>
     </link>
-
     <link name="right_front_caster">
-        <visual>
-            <geometry><sphere radius="0.05" /></geometry>
-            <origin xyz="0 0 0" rpy="0 0 0" />
-            <material name="grey" />
-        </visual>
-        <collision>
-            <geometry><sphere radius="0.05" /></geometry>
-            <origin xyz="0 0 0" rpy="0 0 0" />
-        </collision>
-        <inertial>
-            <mass value="0.1"/>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
-            <inertia ixx="0.0001" ixy="0.0" ixz="0.0" 
-                    iyy="0.0001" iyz="0.0" izz="0.0001"/>
-        </inertial>
+        <visual><geometry><sphere radius="0.05"/></geometry><origin xyz="0 0 0" rpy="0 0 0"/><material name="grey"/></visual>
+        <collision><geometry><sphere radius="0.05"/></geometry></collision>
+        <inertial><mass value="0.1"/><origin xyz="0 0 0" rpy="0 0 0"/><inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/></inertial>
     </link>
-
     <link name="left_rear_caster">
-        <visual>
-            <geometry><sphere radius="0.05" /></geometry>
-            <origin xyz="0 0 0" rpy="0 0 0" />
-            <material name="grey" />
-        </visual>
-        <collision>
-            <geometry><sphere radius="0.05" /></geometry>
-            <origin xyz="0 0 0" rpy="0 0 0" />
-        </collision>
-        <inertial>
-            <mass value="0.1"/>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
-            <inertia ixx="0.0001" ixy="0.0" ixz="0.0" 
-                    iyy="0.0001" iyz="0.0" izz="0.0001"/>
-        </inertial>
+        <visual><geometry><sphere radius="0.05"/></geometry><origin xyz="0 0 0" rpy="0 0 0"/><material name="grey"/></visual>
+        <collision><geometry><sphere radius="0.05"/></geometry></collision>
+        <inertial><mass value="0.1"/><origin xyz="0 0 0" rpy="0 0 0"/><inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/></inertial>
     </link>
-
     <link name="right_rear_caster">
-        <visual>
-            <geometry><sphere radius="0.05" /></geometry>
-            <origin xyz="0 0 0" rpy="0 0 0" />
-            <material name="grey" />
-        </visual>
-        <collision>
-            <geometry><sphere radius="0.05" /></geometry>
-            <origin xyz="0 0 0" rpy="0 0 0" />
-        </collision>
-        <inertial>
-            <mass value="0.1"/>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
-            <inertia ixx="0.0001" ixy="0.0" ixz="0.0" 
-                    iyy="0.0001" iyz="0.0" izz="0.0001"/>
-        </inertial>
+        <visual><geometry><sphere radius="0.05"/></geometry><origin xyz="0 0 0" rpy="0 0 0"/><material name="grey"/></visual>
+        <collision><geometry><sphere radius="0.05"/></geometry></collision>
+        <inertial><mass value="0.1"/><origin xyz="0 0 0" rpy="0 0 0"/><inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/></inertial>
     </link>
 
-    <!-- Depth camera sensor -->
-    <link name="camera_link">
-        <visual>
-            <geometry><box size="0.05 0.10 0.04"/></geometry>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
-            <material name="grey"/>
-        </visual>
-        <collision>
-            <geometry><box size="0.05 0.10 0.04"/></geometry>
-        </collision>
-        <inertial>
-            <mass value="0.1"/>
-            <inertia ixx="0.001" ixy="0.0" ixz="0.0"
-                    iyy="0.001" iyz="0.0" izz="0.001"/>
-        </inertial>
+    <!-- ===== Depth cameras (6x) ===== -->
+    <link name="camera_front_link">
+        <visual><geometry><box size="0.05 0.10 0.04"/></geometry><origin xyz="0 0 0" rpy="0 0 0"/><material name="grey"/></visual>
+        <collision><geometry><box size="0.05 0.10 0.04"/></geometry></collision>
+        <inertial><mass value="0.1"/><inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/></inertial>
+    </link>
+    <link name="camera_front_right_link">
+        <visual><geometry><box size="0.05 0.10 0.04"/></geometry><origin xyz="0 0 0" rpy="0 0 0"/><material name="grey"/></visual>
+        <collision><geometry><box size="0.05 0.10 0.04"/></geometry></collision>
+        <inertial><mass value="0.1"/><inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/></inertial>
+    </link>
+    <link name="camera_front_left_link">
+        <visual><geometry><box size="0.05 0.10 0.04"/></geometry><origin xyz="0 0 0" rpy="0 0 0"/><material name="grey"/></visual>
+        <collision><geometry><box size="0.05 0.10 0.04"/></geometry></collision>
+        <inertial><mass value="0.1"/><inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/></inertial>
+    </link>
+    <link name="camera_back_link">
+        <visual><geometry><box size="0.05 0.10 0.04"/></geometry><origin xyz="0 0 0" rpy="0 0 0"/><material name="grey"/></visual>
+        <collision><geometry><box size="0.05 0.10 0.04"/></geometry></collision>
+        <inertial><mass value="0.1"/><inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/></inertial>
+    </link>
+    <link name="camera_back_right_link">
+        <visual><geometry><box size="0.05 0.10 0.04"/></geometry><origin xyz="0 0 0" rpy="0 0 0"/><material name="grey"/></visual>
+        <collision><geometry><box size="0.05 0.10 0.04"/></geometry></collision>
+        <inertial><mass value="0.1"/><inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/></inertial>
+    </link>
+    <link name="camera_back_left_link">
+        <visual><geometry><box size="0.05 0.10 0.04"/></geometry><origin xyz="0 0 0" rpy="0 0 0"/><material name="grey"/></visual>
+        <collision><geometry><box size="0.05 0.10 0.04"/></geometry></collision>
+        <inertial><mass value="0.1"/><inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/></inertial>
     </link>
 
-    <!-- Joints -->
+    <!-- ===== Joints ===== -->
     <joint name="base_joint" type="fixed">
-        <parent link="base_footprint" />
-        <child link="base_link"/>
-        <origin xyz="0 0 0.20" rpy="0 0 0" />
+        <parent link="base_footprint"/><child link="base_link"/>
+        <origin xyz="0 0 0.20" rpy="0 0 0"/>
     </joint>
-
     <joint name="base_left_wheel_joint" type="continuous">
-        <parent link="base_link" />
-        <child link="left_wheel"/>
-        <origin xyz="0.0 0.3475 -0.036" rpy="0 0 0" />
-        <axis xyz="0 1 0" />
+        <parent link="base_link"/><child link="left_wheel"/>
+        <origin xyz="0.0 0.3475 -0.036" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
     </joint>
-
     <joint name="base_right_wheel_joint" type="continuous">
-        <parent link="base_link" />
-        <child link="right_wheel"/>
-        <origin xyz="0.0 -0.3475 -0.036" rpy="0 0 0" />
-        <axis xyz="0 1 0" />
+        <parent link="base_link"/><child link="right_wheel"/>
+        <origin xyz="0.0 -0.3475 -0.036" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
     </joint>
-
     <joint name="left_front_caster_joint" type="fixed">
-        <parent link="base_link" />
-        <child link="left_front_caster" />
-        <origin xyz="0.30 0.24 -0.164" rpy="0 0 0" />
+        <parent link="base_link"/><child link="left_front_caster"/>
+        <origin xyz="0.30 0.24 -0.164" rpy="0 0 0"/>
     </joint>
-
     <joint name="right_front_caster_joint" type="fixed">
-        <parent link="base_link" />
-        <child link="right_front_caster" />
-        <origin xyz="0.30 -0.24 -0.164" rpy="0 0 0" />
+        <parent link="base_link"/><child link="right_front_caster"/>
+        <origin xyz="0.30 -0.24 -0.164" rpy="0 0 0"/>
     </joint>
-
     <joint name="left_rear_caster_joint" type="fixed">
-        <parent link="base_link" />
-        <child link="left_rear_caster" />
-        <origin xyz="-0.41 0.24 -0.164" rpy="0 0 0" />
+        <parent link="base_link"/><child link="left_rear_caster"/>
+        <origin xyz="-0.41 0.24 -0.164" rpy="0 0 0"/>
     </joint>
-
     <joint name="right_rear_caster_joint" type="fixed">
-        <parent link="base_link" />
-        <child link="right_rear_caster" />
-        <origin xyz="-0.41 -0.24 -0.164" rpy="0 0 0" />
+        <parent link="base_link"/><child link="right_rear_caster"/>
+        <origin xyz="-0.41 -0.24 -0.164" rpy="0 0 0"/>
     </joint>
 
-    <joint name="camera_joint" type="fixed">
-        <parent link="base_link"/>
-        <child link="camera_link"/>
+    <!-- Camera joints (z=0.20 rel to base_link → 0.40m world height) -->
+    <joint name="camera_front_joint" type="fixed">
+        <parent link="base_link"/><child link="camera_front_link"/>
         <origin xyz="0.30 0 0.20" rpy="0 0 0"/>
     </joint>
+    <joint name="camera_front_right_joint" type="fixed">
+        <parent link="base_link"/><child link="camera_front_right_link"/>
+        <origin xyz="0.15 -0.32 0.20" rpy="0 0 -1.05"/>
+    </joint>
+    <joint name="camera_front_left_joint" type="fixed">
+        <parent link="base_link"/><child link="camera_front_left_link"/>
+        <origin xyz="0.15 0.32 0.20" rpy="0 0 1.05"/>
+    </joint>
+    <joint name="camera_back_joint" type="fixed">
+        <parent link="base_link"/><child link="camera_back_link"/>
+        <origin xyz="-0.30 0 0.20" rpy="0 0 3.14159"/>
+    </joint>
+    <joint name="camera_back_right_joint" type="fixed">
+        <parent link="base_link"/><child link="camera_back_right_link"/>
+        <origin xyz="-0.15 -0.32 0.20" rpy="0 0 -2.09"/>
+    </joint>
+    <joint name="camera_back_left_joint" type="fixed">
+        <parent link="base_link"/><child link="camera_back_left_link"/>
+        <origin xyz="-0.15 0.32 0.20" rpy="0 0 2.09"/>
+    </joint>
 
-    <!-- Gazebo plugins -->
-    <gazebo reference="camera_link">
-        <sensor name="depth_camera" type="depth_camera">
-            <topic>depth_camera/image</topic>
-            <camera_info_topic>depth_camera/camera_info</camera_info_topic>
+    <!-- ===== Gazebo sensor plugins ===== -->
+    <gazebo reference="camera_front_link">
+        <sensor name="depth_camera_front" type="depth_camera">
+            <topic>depth_camera_front/image</topic>
+            <camera_info_topic>depth_camera_front/camera_info</camera_info_topic>
             <update_rate>15</update_rate>
-            <camera>
-                <image>
-                    <width>640</width>
-                    <height>480</height>
-                    <format>R_FLOAT32</format>
-                </image>
-                <clip>
-                    <near>0.3</near>
-                    <far>10.0</far>
-                </clip>
-            </camera>
-            <always_on>1</always_on>
-            <visualize>true</visualize>
+            <camera><image><width>640</width><height>480</height><format>R_FLOAT32</format></image><clip><near>0.3</near><far>10.0</far></clip></camera>
+            <always_on>1</always_on><visualize>true</visualize>
+        </sensor>
+    </gazebo>
+    <gazebo reference="camera_front_right_link">
+        <sensor name="depth_camera_front_right" type="depth_camera">
+            <topic>depth_camera_front_right/image</topic>
+            <camera_info_topic>depth_camera_front_right/camera_info</camera_info_topic>
+            <update_rate>15</update_rate>
+            <camera><image><width>640</width><height>480</height><format>R_FLOAT32</format></image><clip><near>0.3</near><far>10.0</far></clip></camera>
+            <always_on>1</always_on><visualize>true</visualize>
+        </sensor>
+    </gazebo>
+    <gazebo reference="camera_front_left_link">
+        <sensor name="depth_camera_front_left" type="depth_camera">
+            <topic>depth_camera_front_left/image</topic>
+            <camera_info_topic>depth_camera_front_left/camera_info</camera_info_topic>
+            <update_rate>15</update_rate>
+            <camera><image><width>640</width><height>480</height><format>R_FLOAT32</format></image><clip><near>0.3</near><far>10.0</far></clip></camera>
+            <always_on>1</always_on><visualize>true</visualize>
+        </sensor>
+    </gazebo>
+    <gazebo reference="camera_back_link">
+        <sensor name="depth_camera_back" type="depth_camera">
+            <topic>depth_camera_back/image</topic>
+            <camera_info_topic>depth_camera_back/camera_info</camera_info_topic>
+            <update_rate>15</update_rate>
+            <camera><image><width>640</width><height>480</height><format>R_FLOAT32</format></image><clip><near>0.3</near><far>10.0</far></clip></camera>
+            <always_on>1</always_on><visualize>true</visualize>
+        </sensor>
+    </gazebo>
+    <gazebo reference="camera_back_right_link">
+        <sensor name="depth_camera_back_right" type="depth_camera">
+            <topic>depth_camera_back_right/image</topic>
+            <camera_info_topic>depth_camera_back_right/camera_info</camera_info_topic>
+            <update_rate>15</update_rate>
+            <camera><image><width>640</width><height>480</height><format>R_FLOAT32</format></image><clip><near>0.3</near><far>10.0</far></clip></camera>
+            <always_on>1</always_on><visualize>true</visualize>
+        </sensor>
+    </gazebo>
+    <gazebo reference="camera_back_left_link">
+        <sensor name="depth_camera_back_left" type="depth_camera">
+            <topic>depth_camera_back_left/image</topic>
+            <camera_info_topic>depth_camera_back_left/camera_info</camera_info_topic>
+            <update_rate>15</update_rate>
+            <camera><image><width>640</width><height>480</height><format>R_FLOAT32</format></image><clip><near>0.3</near><far>10.0</far></clip></camera>
+            <always_on>1</always_on><visualize>true</visualize>
         </sensor>
     </gazebo>
 
+    <!-- ===== Drive plugins ===== -->
     <gazebo>
         <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
             <left_joint>base_left_wheel_joint</left_joint>
@@ -305,27 +238,12 @@
             <child_frame_id>base_footprint</child_frame_id>
         </plugin>
     </gazebo>
-
     <gazebo>
-        <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
-        </plugin>
+        <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher"/>
     </gazebo>
 
-    <!-- Gazebo materials and friction -->
-    <gazebo reference="left_wheel">
-        <material>Gazebo/Grey</material>
-        <mu1>1.0</mu1>
-        <mu2>1.0</mu2>
-    </gazebo>
-    
-    <gazebo reference="right_wheel">
-        <material>Gazebo/Grey</material>
-        <mu1>1.0</mu1>
-        <mu2>1.0</mu2>
-    </gazebo>
-    
-    <gazebo reference="base_link">
-        <material>Gazebo/Green</material>
-    </gazebo>
+    <gazebo reference="left_wheel"><material>Gazebo/Grey</material><mu1>1.0</mu1><mu2>1.0</mu2></gazebo>
+    <gazebo reference="right_wheel"><material>Gazebo/Grey</material><mu1>1.0</mu1><mu2>1.0</mu2></gazebo>
+    <gazebo reference="base_link"><material>Gazebo/Green</material></gazebo>
 
 </robot>

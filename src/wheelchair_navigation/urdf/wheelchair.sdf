@@ -2,15 +2,15 @@
   <model name='wheelchair'>
     <link name='base_footprint'>
       <inertial>
-        <pose>-0.046852680697076467 3.3039205332383732e-19 0.19563851061803639 0 0 0</pose>
-        <mass>10.500999999999999</mass>
+        <pose>-0.047450231797109367 9.4612679355157225e-19 0.20492682483410599 0 0 0</pose>
+        <mass>11.000999999999999</mass>
         <inertia>
-          <ixx>0.53913864378630616</ixx>
-          <ixy>-1.897276366212135e-18</ixy>
-          <ixz>-0.0074621472240739284</ixz>
-          <iyy>0.57866712488334437</iyy>
-          <iyz>-1.5131956042231551e-20</iyz>
-          <izz>0.58710848109703828</izz>
+          <ixx>0.60503136609399188</ixx>
+          <ixy>-4.938781862339207e-19</ixy>
+          <ixz>-0.0061798025634033221</ixz>
+          <iyy>0.61988234509590023</iyy>
+          <iyz>5.1280072210495333e-20</iyz>
+          <izz>0.64935097900190875</izz>
         </inertia>
       </inertial>
       <collision name='base_footprint_fixed_joint_lump__base_link_collision'>
@@ -29,7 +29,55 @@
           </friction>
         </surface>
       </collision>
-      <collision name='base_footprint_fixed_joint_lump__camera_link_collision_1'>
+      <collision name='base_footprint_fixed_joint_lump__camera_back_link_collision_1'>
+        <pose>-0.29999999999999999 0 0.40000000000000002 0 0 3.1415899999999999</pose>
+        <geometry>
+          <box>
+            <size>0.050000000000000003 0.10000000000000001 0.040000000000000001</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='base_footprint_fixed_joint_lump__camera_back_left_link_collision_2'>
+        <pose>-0.14999999999999999 0.32000000000000001 0.40000000000000002 0 0 2.0899999999999999</pose>
+        <geometry>
+          <box>
+            <size>0.050000000000000003 0.10000000000000001 0.040000000000000001</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='base_footprint_fixed_joint_lump__camera_back_right_link_collision_3'>
+        <pose>-0.14999999999999999 -0.32000000000000001 0.40000000000000002 0 0 -2.0899999999999999</pose>
+        <geometry>
+          <box>
+            <size>0.050000000000000003 0.10000000000000001 0.040000000000000001</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='base_footprint_fixed_joint_lump__camera_front_link_collision_4'>
         <pose>0.29999999999999999 0 0.40000000000000002 0 0 0</pose>
         <geometry>
           <box>
@@ -45,7 +93,39 @@
           </friction>
         </surface>
       </collision>
-      <collision name='base_footprint_fixed_joint_lump__left_front_caster_collision_2'>
+      <collision name='base_footprint_fixed_joint_lump__camera_front_left_link_collision_5'>
+        <pose>0.14999999999999999 0.32000000000000001 0.40000000000000002 0 0 1.0500000000000003</pose>
+        <geometry>
+          <box>
+            <size>0.050000000000000003 0.10000000000000001 0.040000000000000001</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='base_footprint_fixed_joint_lump__camera_front_right_link_collision_6'>
+        <pose>0.14999999999999999 -0.32000000000000001 0.40000000000000002 0 0 -1.0500000000000003</pose>
+        <geometry>
+          <box>
+            <size>0.050000000000000003 0.10000000000000001 0.040000000000000001</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='base_footprint_fixed_joint_lump__left_front_caster_collision_7'>
         <pose>0.29999999999999999 0.23999999999999999 0.035999999999999997 0 0 0</pose>
         <geometry>
           <sphere>
@@ -53,7 +133,7 @@
           </sphere>
         </geometry>
       </collision>
-      <collision name='base_footprint_fixed_joint_lump__left_rear_caster_collision_3'>
+      <collision name='base_footprint_fixed_joint_lump__left_rear_caster_collision_8'>
         <pose>-0.40999999999999998 0.23999999999999999 0.035999999999999997 0 0 0</pose>
         <geometry>
           <sphere>
@@ -61,7 +141,7 @@
           </sphere>
         </geometry>
       </collision>
-      <collision name='base_footprint_fixed_joint_lump__right_front_caster_collision_4'>
+      <collision name='base_footprint_fixed_joint_lump__right_front_caster_collision_9'>
         <pose>0.29999999999999999 -0.23999999999999999 0.035999999999999997 0 0 0</pose>
         <geometry>
           <sphere>
@@ -69,7 +149,7 @@
           </sphere>
         </geometry>
       </collision>
-      <collision name='base_footprint_fixed_joint_lump__right_rear_caster_collision_5'>
+      <collision name='base_footprint_fixed_joint_lump__right_rear_caster_collision_10'>
         <pose>-0.40999999999999998 -0.23999999999999999 0.035999999999999997 0 0 0</pose>
         <geometry>
           <sphere>
@@ -173,7 +253,43 @@
           <ambient>0 0.75000006 0 1</ambient>
         </material>
       </visual>
-      <visual name='base_footprint_fixed_joint_lump__camera_link_visual_6'>
+      <visual name='base_footprint_fixed_joint_lump__camera_back_link_visual_6'>
+        <pose>-0.29999999999999999 0 0.40000000000000002 0 0 3.1415899999999999</pose>
+        <geometry>
+          <box>
+            <size>0.050000000000000003 0.10000000000000001 0.040000000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.875 0.875 0.875 1</diffuse>
+          <ambient>0.875 0.875 0.875 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_footprint_fixed_joint_lump__camera_back_left_link_visual_7'>
+        <pose>-0.14999999999999999 0.32000000000000001 0.40000000000000002 0 0 2.0899999999999999</pose>
+        <geometry>
+          <box>
+            <size>0.050000000000000003 0.10000000000000001 0.040000000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.875 0.875 0.875 1</diffuse>
+          <ambient>0.875 0.875 0.875 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_footprint_fixed_joint_lump__camera_back_right_link_visual_8'>
+        <pose>-0.14999999999999999 -0.32000000000000001 0.40000000000000002 0 0 -2.0899999999999999</pose>
+        <geometry>
+          <box>
+            <size>0.050000000000000003 0.10000000000000001 0.040000000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.875 0.875 0.875 1</diffuse>
+          <ambient>0.875 0.875 0.875 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_footprint_fixed_joint_lump__camera_front_link_visual_9'>
         <pose>0.29999999999999999 0 0.40000000000000002 0 0 0</pose>
         <geometry>
           <box>
@@ -185,7 +301,31 @@
           <ambient>0.875 0.875 0.875 1</ambient>
         </material>
       </visual>
-      <visual name='base_footprint_fixed_joint_lump__left_front_caster_visual_7'>
+      <visual name='base_footprint_fixed_joint_lump__camera_front_left_link_visual_10'>
+        <pose>0.14999999999999999 0.32000000000000001 0.40000000000000002 0 0 1.0500000000000003</pose>
+        <geometry>
+          <box>
+            <size>0.050000000000000003 0.10000000000000001 0.040000000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.875 0.875 0.875 1</diffuse>
+          <ambient>0.875 0.875 0.875 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_footprint_fixed_joint_lump__camera_front_right_link_visual_11'>
+        <pose>0.14999999999999999 -0.32000000000000001 0.40000000000000002 0 0 -1.0500000000000003</pose>
+        <geometry>
+          <box>
+            <size>0.050000000000000003 0.10000000000000001 0.040000000000000001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.875 0.875 0.875 1</diffuse>
+          <ambient>0.875 0.875 0.875 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_footprint_fixed_joint_lump__left_front_caster_visual_12'>
         <pose>0.29999999999999999 0.23999999999999999 0.035999999999999997 0 0 0</pose>
         <geometry>
           <sphere>
@@ -197,7 +337,7 @@
           <ambient>0.875 0.875 0.875 1</ambient>
         </material>
       </visual>
-      <visual name='base_footprint_fixed_joint_lump__left_rear_caster_visual_8'>
+      <visual name='base_footprint_fixed_joint_lump__left_rear_caster_visual_13'>
         <pose>-0.40999999999999998 0.23999999999999999 0.035999999999999997 0 0 0</pose>
         <geometry>
           <sphere>
@@ -209,7 +349,7 @@
           <ambient>0.875 0.875 0.875 1</ambient>
         </material>
       </visual>
-      <visual name='base_footprint_fixed_joint_lump__right_front_caster_visual_9'>
+      <visual name='base_footprint_fixed_joint_lump__right_front_caster_visual_14'>
         <pose>0.29999999999999999 -0.23999999999999999 0.035999999999999997 0 0 0</pose>
         <geometry>
           <sphere>
@@ -221,7 +361,7 @@
           <ambient>0.875 0.875 0.875 1</ambient>
         </material>
       </visual>
-      <visual name='base_footprint_fixed_joint_lump__right_rear_caster_visual_10'>
+      <visual name='base_footprint_fixed_joint_lump__right_rear_caster_visual_15'>
         <pose>-0.40999999999999998 -0.23999999999999999 0.035999999999999997 0 0 0</pose>
         <geometry>
           <sphere>
@@ -233,8 +373,68 @@
           <ambient>0.875 0.875 0.875 1</ambient>
         </material>
       </visual>
-      <sensor name='depth_camera' type='depth_camera'>
-        <topic>depth_camera/image</topic>
+      <sensor name='depth_camera_back' type='depth_camera'>
+        <topic>depth_camera_back/image</topic>
+        <update_rate>15</update_rate>
+        <camera>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R_FLOAT32</format>
+          </image>
+          <clip>
+            <near>0.29999999999999999</near>
+            <far>10</far>
+          </clip>
+          <horizontal_fov>1.0469999999999999</horizontal_fov>
+        </camera>
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <pose>-0.29999999999999999 0 0.40000000000000002 0 0 3.1415899999999999</pose>
+        <camera_info_topic>depth_camera_back/camera_info</camera_info_topic>
+      </sensor>
+      <sensor name='depth_camera_back_left' type='depth_camera'>
+        <topic>depth_camera_back_left/image</topic>
+        <update_rate>15</update_rate>
+        <camera>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R_FLOAT32</format>
+          </image>
+          <clip>
+            <near>0.29999999999999999</near>
+            <far>10</far>
+          </clip>
+          <horizontal_fov>1.0469999999999999</horizontal_fov>
+        </camera>
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <pose>-0.14999999999999999 0.32000000000000001 0.40000000000000002 0 0 2.0899999999999999</pose>
+        <camera_info_topic>depth_camera_back_left/camera_info</camera_info_topic>
+      </sensor>
+      <sensor name='depth_camera_back_right' type='depth_camera'>
+        <topic>depth_camera_back_right/image</topic>
+        <update_rate>15</update_rate>
+        <camera>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R_FLOAT32</format>
+          </image>
+          <clip>
+            <near>0.29999999999999999</near>
+            <far>10</far>
+          </clip>
+          <horizontal_fov>1.0469999999999999</horizontal_fov>
+        </camera>
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <pose>-0.14999999999999999 -0.32000000000000001 0.40000000000000002 0 0 -2.0899999999999999</pose>
+        <camera_info_topic>depth_camera_back_right/camera_info</camera_info_topic>
+      </sensor>
+      <sensor name='depth_camera_front' type='depth_camera'>
+        <topic>depth_camera_front/image</topic>
         <update_rate>15</update_rate>
         <camera>
           <image>
@@ -251,7 +451,47 @@
         <always_on>true</always_on>
         <visualize>true</visualize>
         <pose>0.29999999999999999 0 0.40000000000000002 0 0 0</pose>
-        <camera_info_topic>depth_camera/camera_info</camera_info_topic>
+        <camera_info_topic>depth_camera_front/camera_info</camera_info_topic>
+      </sensor>
+      <sensor name='depth_camera_front_left' type='depth_camera'>
+        <topic>depth_camera_front_left/image</topic>
+        <update_rate>15</update_rate>
+        <camera>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R_FLOAT32</format>
+          </image>
+          <clip>
+            <near>0.29999999999999999</near>
+            <far>10</far>
+          </clip>
+          <horizontal_fov>1.0469999999999999</horizontal_fov>
+        </camera>
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <pose>0.14999999999999999 0.32000000000000001 0.40000000000000002 0 0 1.0500000000000003</pose>
+        <camera_info_topic>depth_camera_front_left/camera_info</camera_info_topic>
+      </sensor>
+      <sensor name='depth_camera_front_right' type='depth_camera'>
+        <topic>depth_camera_front_right/image</topic>
+        <update_rate>15</update_rate>
+        <camera>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R_FLOAT32</format>
+          </image>
+          <clip>
+            <near>0.29999999999999999</near>
+            <far>10</far>
+          </clip>
+          <horizontal_fov>1.0469999999999999</horizontal_fov>
+        </camera>
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <pose>0.14999999999999999 -0.32000000000000001 0.40000000000000002 0 0 -1.0500000000000003</pose>
+        <camera_info_topic>depth_camera_front_right/camera_info</camera_info_topic>
       </sensor>
     </link>
     <joint name='base_left_wheel_joint' type='revolute'>
@@ -402,10 +642,40 @@
       <child_frame_id>base_footprint</child_frame_id>
     </plugin>
     <plugin name='gz::sim::systems::JointStatePublisher' filename='gz-sim-joint-state-publisher-system'/>
-    <frame name='camera_joint' attached_to='base_link'>
+    <frame name='camera_back_joint' attached_to='base_link'>
+      <pose>-0.29999999999999999 0 0.20000000000000001 0 0 3.1415899999999999</pose>
+    </frame>
+    <frame name='camera_back_link' attached_to='camera_back_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='camera_back_left_joint' attached_to='base_link'>
+      <pose>-0.14999999999999999 0.32000000000000001 0.20000000000000001 0 0 2.0899999999999999</pose>
+    </frame>
+    <frame name='camera_back_left_link' attached_to='camera_back_left_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='camera_back_right_joint' attached_to='base_link'>
+      <pose>-0.14999999999999999 -0.32000000000000001 0.20000000000000001 0 0 -2.0899999999999999</pose>
+    </frame>
+    <frame name='camera_back_right_link' attached_to='camera_back_right_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='camera_front_joint' attached_to='base_link'>
       <pose>0.29999999999999999 0 0.20000000000000001 0 0 0</pose>
     </frame>
-    <frame name='camera_link' attached_to='camera_joint'>
+    <frame name='camera_front_link' attached_to='camera_front_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='camera_front_left_joint' attached_to='base_link'>
+      <pose>0.14999999999999999 0.32000000000000001 0.20000000000000001 0 0 1.0500000000000003</pose>
+    </frame>
+    <frame name='camera_front_left_link' attached_to='camera_front_left_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='camera_front_right_joint' attached_to='base_link'>
+      <pose>0.14999999999999999 -0.32000000000000001 0.20000000000000001 0 0 -1.0500000000000003</pose>
+    </frame>
+    <frame name='camera_front_right_link' attached_to='camera_front_right_joint'>
       <pose>0 0 0 0 0 0</pose>
     </frame>
     <frame name='left_front_caster_joint' attached_to='base_link'>
